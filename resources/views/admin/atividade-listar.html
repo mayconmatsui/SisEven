@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <h1>Atividades</h1>
+     <a href="/admin/atividade/novo/{{evento_id}}" class="btn btn-primary">Nova Atividade</a>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data da Atividade</th>
+            <th scope="col">Hora de inicio</th>
+            <th scope="col">Hora de termino</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for atividade in atividades %}
+          <tr>
+            <th scope="row">{{atividade.id }}</th>
+            <td>{{atividade.titulo}}</td>
+            <td>{{atividade.descricao}}</td>
+            <td>{{atividade.dataAtividade | date("d/m/Y") }}</td>
+            <td>{{atividade.horaInicio}}</td>
+            <td>{{atividade.horaFinal}}</td>
+            <td>
+              <a href="/admin/atividade/editar/{{atividade.id }}" title="Editar Atividade"><img class="iconeAcao" src="/icon/edit.svg" ></a>
+              <a href="/admin/atividade/delete/{{atividade.id }}" title="Excluir Atividade"><img class="iconeAcao" src="/icon/trash.svg" ></a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

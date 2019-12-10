@@ -1,0 +1,17 @@
+{
+    "name": "ifms/sis-even",
+    "require": {
+        "slim/slim": "4.0.0",
+        "slim/psr7": "^0.5.0",
+        "illuminate/database": "^6.0",
+        "illuminate/events": "^6.0",
+        "twig/twig": "^2.0",
+        "rakit/validation": "^1.2"
+    },
+
+    "autoload":{
+        "psr-4":{
+            "App\\": "App/"
+        }
+    }
+}

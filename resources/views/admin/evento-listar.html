@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <h1>Eventos</h1>
+     <a href="/admin/evento/novo" class="btn btn-primary">Novo Evento</a>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Título</th>
+            <th scope="col">Data de Início</th>
+            <th scope="col">Data de Término</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for evento in eventos %}
+          <tr>
+            <th scope="row">{{evento.id }}</th>
+            <td>{{evento.titulo }}</td>
+            <td>{{evento.dataInicio | date("d/m/Y") }}</td>
+            <td>{{evento.dataFinal | date("d/m/Y") }}</td>
+            <td>
+              <a href="/admin/evento/editar/{{evento.id }}" title="Editar evento"><img class="iconeAcao" src="/icon/edit.svg" ></a>
+              <a href="/admin/evento/delete/{{evento.id }}" title="Excluir evento"><img class="iconeAcao" style="width: 15px" src="/icon/trash.svg" ></a>
+              <a href="/admin/atividade/listar/{{evento.id }}" title="Listar Atividades"><img class="iconeAcao" src="/icon/add.svg" ></a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

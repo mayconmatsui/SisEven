@@ -1,0 +1,52 @@
+{% extends "template.html" %}
+
+{% block content %}
+<h1>Novo Evento</h1>
+<section>
+  <form action="/admin/evento/salvar" method="POST" enctype="multipart/form-data">
+    {% block msg%}
+    {% if erros|length > 0 %}
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {% for array in erros %}
+      <ul>
+        <li>{{ array}}</li>
+      </ul>
+      {% endfor%}
+    </div>
+    {% endif %}
+    {% endblock %}
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="titulo">Título</label>
+        <input type="text" class="form-control" name="titulo" id="titulo" >
+      </div>
+      <div class="form-group col-md-12">
+        <label for="descricao">Descrição</label>
+        <textarea class="form-control" name="descricao" id="descricao"></textarea>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="dataInicio">Data de Início</label>
+        <input type="date" class="form-control" name="dataInicio" id="dataInicio" >
+      </div>
+      <div class="form-group col-md-3">
+        <label for="dataFinal">Data Final</label>
+        <input type="date" class="form-control" name="dataFinal" id="dataFinal">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inscricaoInicio"> Data de Início das Inscrições</label>
+        <input type="date" class="form-control" name="inscricaoInicio" id="inscricaoInicio">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inscricaoFinal">Data Final das Inscrições</label>
+        <input type="date" class="form-control" name="inscricaoFinal" id="inscricaoFinal" >
+      </div>
+      <div class="form-group col-md-12">
+        <label for="capaEvento">Capa do Evento</label>
+        <input type="file" class="form-control" name="capaEvento" id="capaEvento" >
+      </div>
+      <button class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

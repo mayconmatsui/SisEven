@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+
+{% block content %}
+<h1>Nova Atividade</h1>
+<section>
+  <form action="/admin/atividade/salvar" method="POST">
+    <input type="hidden" name="evento_id" value="{{evento_id}}">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="titulo">Título</label>
+        <input type="text" class="form-control" name="titulo" id="titulo" >
+      </div>
+      <div class="form-group col-md-12">
+        <label for="descricao">Descrição</label>
+        <textarea class="form-control" name="descricao" id="descricao"></textarea>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="dataAtividade">Data da Atividade</label>
+        <input type="date" class="form-control" name="dataAtividade" id="dataAtividade" >
+      </div>
+      <div class="form-group col-md-4">
+        <label for="horaInicio">Hora Inicial</label>
+        <input type="time" class="form-control" name="horaInicio" id="horaInicio">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="horaFinal">Hora Final</label>
+        <input type="time" class="form-control" name="horaFinal" id="horaFinal">
+      </div>
+      <button class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</section>
+{% endblock %}
